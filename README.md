@@ -1,1 +1,0 @@
-# JeffreyDvk.github.io
