@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Josefin";
+    src: url("font/Montserrat.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin";
+}
+body{
+    font-weight: 600;
+    background-color: #181818;
+    color: aqua;
+    overflow: hidden;
+}
+section{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 0px 300px;
+    line-height: 1.5em;
+    letter-spacing: .2em;
+}
+.text{
+    position: relative;
+}
+.text span{
+    position: relative;
+    display: inline-block;
+}
