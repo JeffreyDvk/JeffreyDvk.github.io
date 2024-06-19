@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c3c6ed7.css",
+    "main.js": "/static/js/main.602cc9a0.js",
+    "static/media/bg.jpg": "/static/media/bg.99a818509030db564aeb.jpg",
+    "static/media/AlegreyaSans.ttf": "/static/media/AlegreyaSans.53c8ac8158a332190348.ttf",
+    "static/media/LaBelleAurore.ttf": "/static/media/LaBelleAurore.bc43b15661f3e942b3f6.ttf",
+    "static/media/Economica.ttf": "/static/media/Economica.2f40608b7dd04f76bc14.ttf",
+    "index.html": "/index.html",
+    "main.5c3c6ed7.css.map": "/static/css/main.5c3c6ed7.css.map",
+    "main.602cc9a0.js.map": "/static/js/main.602cc9a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c3c6ed7.css",
+    "static/js/main.602cc9a0.js"
+  ]
+}
