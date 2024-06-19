@@ -1,0 +1,193 @@
+@import '../globalVars.scss';
+@import '../tools';
+
+%flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu__button{
+    &::after,&::before, *{
+        transition: all .25s;
+    }
+}
+.menu-container{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    left: 0;
+    z-index: -5;
+    @extend %flex;
+    @include compatible(backdrop-filter,blur(10px));
+    transition: all 1s;
+    
+    .menu {
+        @include compatible(transform,scale(0.9));
+        color: white;
+        z-index: 1;
+        filter: brightness(0.8);
+        
+        &__line{
+            @extend %flex;
+        }
+
+        &__button{
+            background-color: rgba(12, 12, 24,0.4);
+            color: white;
+            height: 100px;
+            width: 100px;
+            transform: rotate(-45deg);
+            margin-top: -5px;
+            margin-left: 100px;
+            position: relative;
+            border: none;
+            z-index: 1;
+            font-size: var(--lg-text);
+            
+            &__text{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: rotate(45deg) translate( -50% , -50%) ;
+                transform-origin: left;
+                transition: opacity .5s .25s,transform 1s 0s;
+                opacity: 0;
+                z-index: 2;
+                color: white;
+                letter-spacing: 0.2em;
+                font-weight: 600;   
+                text-align: center;
+                width: max-content
+            }
+            
+            &__icon{
+                @extend %flex;
+                position: absolute;
+                background-color: $dark;
+                height: 100%;
+                width: 100%;
+    
+                i{
+                    transform: rotate(45deg);
+                    z-index: 0;
+                }       
+            }
+            &__behind{
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(12, 12, 24,0.4);
+            }
+            
+            &::before{
+                content:'';
+                height: 6px;
+                width: 100%;
+                background-color: rgba(12, 12, 24,0.5);
+                position: absolute;
+                left: -3px;
+                top: -6px;
+                transform: skew(45deg,0deg);
+            }
+    
+            &::after{
+                content: '';
+                height: 100%;
+                width: 6px;
+                background-color: rgba(12, 12, 24,0.6);
+                position: absolute;
+                left: -6px;
+                top: -3px;
+                transform: skew(0deg,45deg);
+            }
+            &:hover{
+                z-index: 2;
+                cursor: pointer;
+    
+                .menu__button{
+                    &__behind{
+                        transform: translate(5%,5%);
+                    }
+        
+                    &__icon{
+                        transform: translate(10%,10%);
+                        
+                    }
+        
+                    &__text{
+                        opacity: 1;
+                        transform: rotate(45deg) translate( -100% , 50%) ;
+                    }
+                    
+                }
+                i{
+                    opacity: 1 !important;
+                }
+
+            }
+    
+            &:active{
+                z-index: 2;
+                background-color: transparent;
+    
+                &::before, &::after, .menu__button__behind{
+                    background-color: transparent;
+                }
+    
+                .menu__button__icon{
+                    transform: translate(-3%,-3%);
+                    background-color: rgb(8, 55, 107);
+                }
+            }
+    
+            
+        }
+        
+    }
+    &.active{
+        z-index: 5;
+        opacity: 1;
+    }
+}
+
+@media only screen and ( min-width: 6000px ){
+
+}
+
+@media #{$sm-screen}{
+    .menu-container .menu{
+        @include compatible(transform,scale(0.55));
+
+        &__button{
+            &:hover{
+                z-index: 2;
+                cursor: pointer;
+    
+                .menu__button{
+                    &__behind{
+                        transform: translate(5%,5%);
+                    }
+        
+                    &__icon{
+                        transform: translate(10%,10%);
+                        
+                    }
+        
+                    &__text{
+                        opacity: 1;
+                        transform: rotate(45deg) translate( -100% , 50%) ;
+                    }
+                    
+                }
+                i{
+                    opacity: 1 !important;
+                }
+
+            }
+        }
+    }
+}
+
+
+

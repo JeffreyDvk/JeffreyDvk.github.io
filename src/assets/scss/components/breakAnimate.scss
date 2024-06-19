@@ -1,0 +1,104 @@
+@import '../globalVars.scss';
+
+.navbar{
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    
+    &__title{
+        font-weight: 500;
+        font-size: $lg-text;
+
+        span{
+            font-family: inherit;
+            color: $light;
+        }
+    }
+    &__links{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        &__link{
+            color: white;
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+
+            &::after{
+                content: '';
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                width: 0px;
+                background-color: rgba(255,255,255,0.5);
+                transition: width 0.5s ease-in-out;
+            }
+            &:hover::after{
+                width: 100%;
+            }
+
+
+            &__letter{
+                transition: 0.5s;
+                will-change: transform;
+                display: inline-block;
+                transition-delay: calc(100ms * var(--i));
+            }
+            &__up{
+                span{
+                    transform-origin: bottom;
+                }
+            }
+            &__down{
+                position: absolute;
+                top: 0;
+                left: 0;
+                
+                span{
+                    transform-origin: top;
+                    transform: translateY(100%) rotateX(-90deg);
+                    
+                }
+            }
+
+        }
+    }
+
+    .navbar__links__link{
+        
+        color: #fff;
+        &:hover{
+            .navbar__links__link__up{
+                .navbar__links__link__letter{
+                    transform: translateY(-100%) rotateX(-90deg);
+                }
+            }
+            .navbar__links__link__down{
+                .navbar__links__link__letter{
+                    transform: translateY(0%) rotateX(0deg);
+                }
+            }
+        }
+    }
+    
+    &__menu-trigger{
+
+    }
+}
+
+@media #{$md-screen} {
+    .navbar__links{
+        display: none;
+    }
+}

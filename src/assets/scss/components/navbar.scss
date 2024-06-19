@@ -1,0 +1,69 @@
+@import '../globalVars.scss';
+
+.navbar{
+    background: none;   
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    width: 120px;
+    z-index: 4;
+    min-height: 100vh;
+    //box-shadow: 1px 0 2px $light;
+    position: fixed;
+    left: 0;
+    
+    &__logo{
+        height: 60px;
+        filter: invert(1);
+        padding: 0 0.5rem;
+    }
+    &__links{
+        &__item{
+            @extend %flex;
+            justify-content: flex-start !important;
+            margin: 20px 0;
+            i{
+                font-size: calc(var(--xs-text) - 8px);
+                margin-right: 0.8em;
+            }
+        }
+
+
+        &__link{
+            position: relative;
+            color: #fff;
+            font-size: var(--sm-text);
+            padding-top: 5px;
+            position: relative;
+            transition: 1s;
+
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                height: 2px;
+                width: 0%;
+                background-color: $light;   
+                transition: width 0.5s;
+            }
+            
+            &.active,&:hover{
+                &::before{
+                    width: 100%;
+                }
+            }
+            &.active{
+                font-weight: 600;
+            }
+        }
+    }
+    &__menu-trigger{
+        
+        font-size: var(--sm-title);
+    }
+    
+}
+
